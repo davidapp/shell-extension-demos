@@ -1,0 +1,6 @@
+#pragma once
+#include <guiddef.h>
+
+// {18293A4B-C5D6-4E78-9ABC-DEF012345678}  —— 真实项目请重新生成。
+DEFINE_GUID(CLSID_DemoDropHandler,
+    0x18293a4b, 0xc5d6, 0x4e78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56, 0x78);
