@@ -1,0 +1,6 @@
+#pragma once
+#include <guiddef.h>
+
+// {0718293A-B4C5-4D67-E89A-BCDEF0123456}  —— 真实项目请重新生成。
+DEFINE_GUID(CLSID_DemoPreviewHandler,
+    0x0718293a, 0xb4c5, 0x4d67, 0xe8, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56);
