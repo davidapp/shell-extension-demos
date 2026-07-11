@@ -10,7 +10,17 @@
 | 目录 | 对应章节 | 处理器 / 接口 |
 | --- | --- | --- |
 | [`01-context-menu/`](01-context-menu/) | ① 右键菜单扩展 | `IContextMenu` + `IShellExtInit` |
-| …（后续章节陆续补齐） | | |
+| [`02-explorer-command/`](02-explorer-command/) | ② Explorer 命令 | `IExplorerCommand` |
+| [`03-win11-packaging/`](03-win11-packaging/) | ③ Win11 主菜单 | `IExplorerCommand` + MSIX/稀疏包 |
+| [`04-thumbnail/`](04-thumbnail/) | ④ 缩略图 | `IThumbnailProvider` + `IInitializeWithStream` |
+| [`05-icon/`](05-icon/) | ⑤ 图标 | `IExtractIcon` + `IPersistFile` |
+| [`06-property/`](06-property/) | ⑥ 属性处理器 | `IPropertyStore` + `IInitializeWithStream` |
+| [`07-infotip/`](07-infotip/) | ⑦ 信息提示 | `IQueryInfo` + `IPersistFile` |
+| [`08-propsheet/`](08-propsheet/) | ⑧ 属性表页 | `IShellPropSheetExt` + `IShellExtInit` |
+| [`09-preview/`](09-preview/) | ⑨ 预览处理器 | `IPreviewHandler` + `IInitializeWithStream` |
+| [`10-drop/`](10-drop/) | ⑩ 拖放处理器 | `IDropTarget` + `IPersistFile` |
+
+> 第 ⑪ 章（调试、部署与现代化迁移）是工程收尾，无独立示例；`common/` 下是各示例共享的 COM 基础设施（类厂、引用计数、注册辅助）。
 
 ## 环境要求
 
