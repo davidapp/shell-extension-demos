@@ -1,0 +1,17 @@
+# CMake / MSVC 构建产物
+build/
+out/
+.vs/
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+*.user
+
+# 二进制与中间文件
+*.dll
+*.exe
+*.exp
+*.lib
+*.pdb
+*.obj
+*.ilk

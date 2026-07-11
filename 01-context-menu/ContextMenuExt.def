@@ -1,0 +1,7 @@
+; COM 进程内服务器的四个标准导出。
+LIBRARY
+EXPORTS
+    DllGetClassObject   PRIVATE
+    DllCanUnloadNow     PRIVATE
+    DllRegisterServer   PRIVATE
+    DllUnregisterServer PRIVATE
