@@ -1,0 +1,6 @@
+#pragma once
+#include <guiddef.h>
+
+// {E5F60718-92A3-4B45-C678-9ABCDEF01234}  —— 真实项目请重新生成。
+DEFINE_GUID(CLSID_DemoInfotipHandler,
+    0xe5f60718, 0x92a3, 0x4b45, 0xc6, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34);
