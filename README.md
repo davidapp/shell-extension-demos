@@ -19,8 +19,9 @@
 | [`08-propsheet/`](08-propsheet/) | ⑧ 属性表页 | `IShellPropSheetExt` + `IShellExtInit` |
 | [`09-preview/`](09-preview/) | ⑨ 预览处理器 | `IPreviewHandler` + `IInitializeWithStream` |
 | [`10-drop/`](10-drop/) | ⑩ 拖放处理器 | `IDropTarget` + `IPersistFile` |
+| [`11-icon-overlay/`](11-icon-overlay/) | ⑪ 图标叠加 | `IShellIconOverlayIdentifier` |
 
-> 第 ⑪ 章（调试、部署与现代化迁移）是工程收尾，无独立示例；`common/` 下是各示例共享的 COM 基础设施（类厂、引用计数、注册辅助）。
+> 第 ⑫ 章（调试、部署与现代化迁移）是工程收尾，无独立示例；`common/` 下是各示例共享的 COM 基础设施（类厂、引用计数、注册辅助）。
 
 ## 环境要求
 

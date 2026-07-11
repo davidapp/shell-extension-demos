@@ -1,0 +1,6 @@
+#pragma once
+#include <guiddef.h>
+
+// {2A3B4C5D-6E7F-4890-A1B2-C3D4E5F60789}  —— 真实项目请重新生成。
+DEFINE_GUID(CLSID_DemoOverlay,
+    0x2a3b4c5d, 0x6e7f, 0x4890, 0xa1, 0xb2, 0xc3, 0xd4, 0xe5, 0xf6, 0x07, 0x89);
