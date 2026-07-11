@@ -1,0 +1,6 @@
+#pragma once
+#include <guiddef.h>
+
+// {F6071829-A3B4-4C56-D789-ABCDEF012345}  —— 真实项目请重新生成。
+DEFINE_GUID(CLSID_DemoPropSheetHandler,
+    0xf6071829, 0xa3b4, 0x4c56, 0xd7, 0x89, 0xab, 0xcd, 0xef, 0x01, 0x23, 0x45);

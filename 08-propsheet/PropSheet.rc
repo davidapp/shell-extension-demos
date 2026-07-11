@@ -1,0 +1,11 @@
+#include <windows.h>
+#include "resource.h"
+
+// 仅用 ASCII，避免 .rc 的中文编码问题；页标题与正文在运行时用 SetDlgItemText 填中文。
+IDD_PROPPAGE DIALOGEX 0, 0, 235, 140
+STYLE DS_SETFONT | DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Demo"
+FONT 9, "Segoe UI", 400, 0, 1
+BEGIN
+    LTEXT "", IDC_INFO, 7, 10, 221, 120
+END
