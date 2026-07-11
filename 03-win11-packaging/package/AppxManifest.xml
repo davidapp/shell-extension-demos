@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package IgnorableNamespaces="uap uap10 rescap com desktop4 desktop5"
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5">
+
+  <!-- Publisher 必须与签名证书的 Subject 一致（build-package.ps1 会用同名自签证书）。 -->
+  <Identity Name="DavidApp.ShellExtDemos.Win11Menu"
+            Publisher="CN=DavidApp Shell Ext Demos"
+            Version="1.0.0.0"
+            ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Shell 扩展示例 · Win11 右键菜单</DisplayName>
+    <PublisherDisplayName>DavidApp</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <!-- 允许包引用外部（安装目录）内容，从而复用现有 Win32 安装目录里的 DLL。 -->
+    <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
+  </Properties>
+
+  <Dependencies>
+    <!-- 稀疏包最低 10.0.19041.0；Win11 主菜单需 Win11。 -->
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="zh-CN" />
+  </Resources>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="unvirtualizedResources" />
+  </Capabilities>
+
+  <Applications>
+    <!-- 幽灵 exe：DLL 项目没有真正的可执行文件，右键命令也不会启动它，占位即可。 -->
+    <Application Id="App" Executable="w11menu-host.exe"
+                 uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
+      <uap:VisualElements AppListEntry="none"
+        DisplayName="Shell 扩展示例 · Win11 右键菜单"
+        Description="IExplorerCommand + 稀疏包接入 Win11 主右键菜单"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png" />
+      <Extensions>
+        <!-- 声明进程内 COM 服务器：Clsid 对应第 2 章的 IExplorerCommand，Path 指向外部位置里的 DLL。 -->
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:SurrogateServer DisplayName="FileInfo ExplorerCommand">
+              <com:Class Id="A3F1C2D4-5E6B-4789-9012-3456789ABCDE"
+                         Path="w11menu.dll" ThreadingModel="STA" />
+            </com:SurrogateServer>
+          </com:ComServer>
+        </com:Extension>
+        <!-- 关键：把该 CLSID 注册为文件资源管理器右键命令（Win11 主菜单）。 -->
+        <desktop4:Extension Category="windows.fileExplorerContextMenus">
+          <desktop4:FileExplorerContextMenus>
+            <desktop5:ItemType Type="*">
+              <desktop5:Verb Id="FileInfoCmd" Clsid="A3F1C2D4-5E6B-4789-9012-3456789ABCDE" />
+            </desktop5:ItemType>
+          </desktop4:FileExplorerContextMenus>
+        </desktop4:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+</Package>

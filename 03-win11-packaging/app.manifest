@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  嵌入 DLL 的“并排（side-by-side）清单”，通过 msix 元素把这个二进制和稀疏包的
+  包标识绑定起来。publisher / packageName / applicationId 必须与 package/AppxManifest.xml
+  的 Identity 和 Application Id 完全一致，否则 Windows 资源管理器不会把它当作已打包组件加载。
+  CMakeLists.txt 用 /MANIFEST:EMBED /MANIFESTINPUT 把它嵌进 w11menu.dll。
+-->
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="DavidApp.ShellExtDemos.Win11Menu" type="win32" />
+  <msix xmlns="urn:schemas-microsoft-com:msix.v1"
+        publisher="CN=DavidApp Shell Ext Demos"
+        packageName="DavidApp.ShellExtDemos.Win11Menu"
+        applicationId="App" />
+</assembly>
